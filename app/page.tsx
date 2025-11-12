@@ -159,7 +159,7 @@ export default function OffersPage() {
         <section
           id="giftcards"
           ref={giftcardsRef}
-          className=" md:p-4  scroll-mt-32"
+          className=" md:p-4 scroll-mt-32"
         >
           <h2 className="px-4 text-xl font-bold text-gray-800">
             Bonus gift cards:
