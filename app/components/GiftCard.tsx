@@ -8,7 +8,6 @@ type GiftcardCardProps = {
 
 export default function GiftcardCard({ offer, onAction }: GiftcardCardProps) {
   const { title, description, actionText, offerValue, logoUrl } = offer;
-
   // Simplified style logic
   let stubColor = "bg-black text-white";
   if (title === "MYNTRA") stubColor = "bg-pink-500 text-white";
@@ -17,14 +16,14 @@ export default function GiftcardCard({ offer, onAction }: GiftcardCardProps) {
   const handleActionClick = () => {
     onAction(title, actionText);
   };
-
+  
   return (
-    <div className="relative flex mx-4 my-3 h-[200px] bg-[#fff7ed]/50 rounded-lg shadow-md overflow-hidden border border-gray-200 ">
+    <div className="relative flex mx-4 my-3  h-[180px] bg-[#fff7ed]/50  shadow-md overflow-hidden border border-gray-200 ">
       {/* --- Ticket Stub --- */}
       <div
         className={`relative flex items-center justify-center ${stubWidth} ${stubColor} p-2`}
       >
-        <span className="font-bold text-3xl text-center transform -rotate-90">
+        <span className="font-bold text-3xl text-center transform -rotate-90 whitespace-nowrap">
           {offerValue}
         </span>
         {/* Dashed line */}
@@ -37,7 +36,7 @@ export default function GiftcardCard({ offer, onAction }: GiftcardCardProps) {
       </div>
 
       {/* --- Card Content --- */}
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 flex flex-col">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
             <div className="relative w-10 h-10 mr-3">
@@ -59,12 +58,12 @@ export default function GiftcardCard({ offer, onAction }: GiftcardCardProps) {
           </button>
         </div>
 
-        <p className="text-sm text-gray-600 border-b border-dashed border-gray-300 pb-3">
+        <p className="text-sm text-gray-600 border-b border-dashed border-gray-300 pb-3 flex-1">
           {description}
         </p>
         <button
           onClick={() => onAction(title, "Read more")}
-          className="text-sm font-medium text-gray-500 pt-3 hover:text-gray-800"
+          className="text-sm font-medium text-gray-500 pt-3 hover:text-gray-800 self-start"
         >
           Read more
         </button>

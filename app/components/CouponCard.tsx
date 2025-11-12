@@ -8,8 +8,6 @@ type CouponCardProps = {
 
 export default function CouponCard({ offer, onAction }: CouponCardProps) {
   const {  title, description, actionText, offerValue } = offer;
-
-  
   const stubColor = "bg-accent text-white";
   const stubWidth = "w-24";
 
@@ -18,13 +16,13 @@ export default function CouponCard({ offer, onAction }: CouponCardProps) {
   };
 
   return (
-    <div className="relative flex mx-4 my-3 h-[200px] bg-[#fff7ed]/50 rounded-lg shadow-md overflow-hidden border border-gray-200">
+    <div className="relative flex mx-4 my-3  h-[180px] bg-[#fff7ed]/50  shadow-md overflow-hidden border border-gray-200">
       {/* --- Ticket Stub --- */}
       <div
         className={`relative flex items-center  justify-center ${stubWidth} ${stubColor} p-2`}
       >
         <span
-          className='font-bold text-center text-3xl transform -rotate-90'
+          className='font-bold text-center text-3xl transform -rotate-90 whitespace-nowrap'
         >
           {offerValue}
         </span>
@@ -38,7 +36,7 @@ export default function CouponCard({ offer, onAction }: CouponCardProps) {
       </div>
 
       {/* --- Card Content --- */}
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 flex flex-col">
         <div className="flex items-center justify-between mb-2">
           <h3 className="font-bold text-gray-700 text-lg">{title}</h3>
           
@@ -51,12 +49,12 @@ export default function CouponCard({ offer, onAction }: CouponCardProps) {
           </button>
         </div>
 
-        <p className="text-sm text-gray-600 border-b border-dashed border-gray-300 pb-3">
+        <p className="text-sm text-gray-600 border-b border-dashed border-gray-300 pb-3 flex-1">
           {description}
         </p>
         <button
-          onClick={() => onAction(title, "Read more")}
-          className="text-sm font-medium text-gray-500 pt-3 hover:text-gray-800"
+           onClick={() => onAction(title, "Read more")}
+           className="text-sm font-medium text-gray-500 pt-3 hover:text-gray-800 self-start"
         >
           Read more
         </button>

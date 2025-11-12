@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import Image from "next/image";
 
-
 import {
   signedInCoupons,
   signedInGiftcards,
@@ -113,7 +112,7 @@ export default function OffersPage() {
             </p>
             <button
               onClick={handleSignIn}
-              className="w-full px-4 py-3 mt-4 font-bold text-white bg-accent rounded-lg"
+              className="w-full px-4 py-3 mt-4 font-bold text-white bg-accent "
             >
               Sign in
             </button>
@@ -160,7 +159,7 @@ export default function OffersPage() {
         <section
           id="giftcards"
           ref={giftcardsRef}
-          className="pt-4 scroll-mt-32"
+          className=" md:p-4  scroll-mt-32"
         >
           <h2 className="px-4 text-xl font-bold text-gray-800">
             Bonus gift cards:
@@ -180,8 +179,8 @@ export default function OffersPage() {
             </>
           ) : (
             <>
-              {/*Signed-out placeholder UI */}
-              <div className="px-4 mt-2 bg-[#fff7ed]">
+              {/* --- FIX 1: Applied full card styling to this outer div --- */}
+              <div className="relative mx-4 my-3 p-4 bg-[#fff7ed]/50 shadow-md rounded-lg overflow-hidden border border-gray-200">
                 
                 {/* Flex container for text and image */}
                 <div className="flex justify-between items-center">
@@ -191,9 +190,12 @@ export default function OffersPage() {
                     <p className="text-lg font-semibold text-gray-800">
                       Assured vouchers upto
                     </p>
-                     <p className="text-lg font-semibold text-accent">
-                      1000
-                    </p>
+                    <div className="flex items-center">
+                      <p className="text-3xl font-bold text-accent">
+                        ₹1000
+                      </p>
+                      <span className="ml-1 text-2xl">✨</span>
+                    </div>
                     <p className="text-sm text-gray-600">of trending brands</p>
                   </div>
                   
@@ -208,12 +210,11 @@ export default function OffersPage() {
                   </div>
                 </div>
 
-                {/* Button remains below */}
                 <button
                   onClick={() =>
                     handleInteraction("Gift Cards", "Claim gift cards")
                   }
-                  className="w-full px-4 py-3 mt-4 font-bold text-accent bg-orange-100 rounded-lg"
+                  className="w-full px-4 py-3 mt-4 font-bold text-white bg-accent "
                 >
                   Claim gift cards »
                 </button>
@@ -226,7 +227,7 @@ export default function OffersPage() {
         <section
           id="payment-offers"
           ref={paymentsRef}
-          className="pt-4 scroll-mt-32"
+          className=" md:p-4 scroll-mt-32"
         >
           <h2 className="px-4 text-xl font-bold text-gray-800">
             Payment offers:
@@ -243,9 +244,11 @@ export default function OffersPage() {
             </>
           ) : (
             <>
-              {/* (Signed-out placeholder UI ) */}
-              <div className="px-4 mt-2 bg-[#fff7ed]">
-                <div className="flex items-center justify-between p-4  rounded-lg shadow-md">
+              {/* --- FIX 2: Applied full card styling to this outer div --- */}
+              <div className="relative mx-4 my-3 p-4 bg-[#fff7ed]/50 shadow-md rounded-lg overflow-hidden border border-gray-200">
+                
+                {/* --- FIX 3: Removed redundant card styling from this inner div --- */}
+                <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-600">Save more on your bookings</p>
                     <p className="text-3xl font-bold text-accent">
@@ -255,7 +258,7 @@ export default function OffersPage() {
                       on select payment methods
                     </p>
                   </div>
-<div className="relative w-32 h-20 rounded-lg overflow-hidden shrink-0">
+                  <div className="relative w-32 h-20 rounded-lg overflow-hidden shrink-0">
                     <Image
                       src='/placeholder-payment.png'
                       alt="Placeholder Giftcard"
@@ -269,7 +272,7 @@ export default function OffersPage() {
                   onClick={() =>
                     handleInteraction("Payment Offers", "Unlock offers")
                   }
-                  className="w-full px-4 py-3 mt-6 font-bold text-accent bg-orange-100 rounded-lg"
+                  className="w-full px-4 py-3 mt-6 font-bold text-white bg-accent "
                   >
                     Unlock offers »
                   </button>

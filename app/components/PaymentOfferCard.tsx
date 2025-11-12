@@ -8,18 +8,17 @@ type PaymentOfferCardProps = {
 
 export default function PaymentOfferCard({ offer, onAction }: PaymentOfferCardProps) {
   const { title, description, offerValue, logoUrl } = offer;
-
   // Static styles, no logic
   const stubColor = "bg-blue-600 text-white";
-  const stubWidth = "w-20";
-
+  const stubWidth = "w-24";
+  
   return (
-    <div className="relative flex mx-4 my-3 h-[200px] bg-[#fff7ed]/50 rounded-lg shadow-md overflow-hidden border border-gray-200">
+    <div className="relative flex mx-4 my-3 h-[180px] bg-[#fff7ed]/50  shadow-md overflow-hidden border border-gray-200">
       {/* --- Ticket Stub --- */}
       <div
         className={`relative flex items-center justify-center ${stubWidth} ${stubColor} `}
       >
-        <span className="font-bold text-3xl text-center transform -rotate-90">
+        <span className="font-bold text-3xl text-center transform -rotate-90 whitespace-nowrap">
           {offerValue}
         </span>
         {/* Dashed line */}
@@ -32,7 +31,7 @@ export default function PaymentOfferCard({ offer, onAction }: PaymentOfferCardPr
       </div>
 
       {/* --- Card Content --- */}
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 flex flex-col">
         {/* --- Top section: No action button as per screenshot --- */}
         <div className="flex items-center  justify-between mb-2">
           <div className="flex items-center ">
@@ -49,12 +48,12 @@ export default function PaymentOfferCard({ offer, onAction }: PaymentOfferCardPr
           {/* No "Copy" or "Collect" button here */}
         </div>
 
-        <p className="text-sm text-gray-600 border-b border-dashed border-gray-300 pb-3">
+        <p className="text-sm text-gray-600 border-b border-dashed border-gray-300 pb-3 flex-1">
           {description}
         </p>
         <button
           onClick={() => onAction(title, "Read more")}
-          className="text-sm font-medium text-gray-500 pt-3 hover:text-gray-800"
+          className="text-sm font-medium text-gray-500 pt-3 hover:text-gray-800 self-start"
         >
           Read more
         </button>
