@@ -14,16 +14,16 @@ export default function PaymentOfferCard({ offer, onAction }: PaymentOfferCardPr
   const stubWidth = "w-20";
 
   return (
-    <div className="relative flex mx-4 my-3 bg-[#fff7ed] rounded-lg shadow-md overflow-hidden border border-gray-200">
+    <div className="relative flex mx-4 my-3 h-[200px] bg-[#fff7ed]/50 rounded-lg shadow-md overflow-hidden border border-gray-200">
       {/* --- Ticket Stub --- */}
       <div
         className={`relative flex items-center justify-center ${stubWidth} ${stubColor} `}
       >
-        <span className="font-bold text-2xl text-center transform -rotate-90">
+        <span className="font-bold text-3xl text-center transform -rotate-90">
           {offerValue}
         </span>
         {/* Dashed line */}
-        <div className="absolute top-0 bottom-0 right-0 w-px bg-transparent"
+        <div className="absolute top-0 bottom-0 right-0 w-0.5 bg-transparent"
              style={{
                backgroundImage: `linear-gradient(to bottom, white 60%, transparent 40%)`,
                backgroundSize: "100% 10px",
@@ -34,8 +34,8 @@ export default function PaymentOfferCard({ offer, onAction }: PaymentOfferCardPr
       {/* --- Card Content --- */}
       <div className="flex-1 p-4">
         {/* --- Top section: No action button as per screenshot --- */}
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center">
+        <div className="flex items-center  justify-between mb-2">
+          <div className="flex items-center ">
             <div className="relative w-10 h-10 mr-3">
               <Image
                 src={logoUrl}

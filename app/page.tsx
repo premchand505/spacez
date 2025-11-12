@@ -96,7 +96,7 @@ export default function OffersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-white/40 pb-20">
       <Header />
 
       <main className="px-4 pt-6">
